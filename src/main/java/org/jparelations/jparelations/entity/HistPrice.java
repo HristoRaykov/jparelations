@@ -23,6 +23,10 @@ public class HistPrice {
     @Column(precision = 10, scale = 4)
     private BigDecimal close;
 
+    @ManyToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name="symbol", insertable=false, updatable=false)
+    private DebtSec debtSec;
+
 
     public HistPrice() {
     }
@@ -31,6 +35,7 @@ public class HistPrice {
         this.symbol = symbol;
         this.date = date;
         this.close = close;
+//        this.debtSec = debtSec;
     }
 
     public String getSymbol() {
@@ -45,5 +50,11 @@ public class HistPrice {
         return close;
     }
 
+    public DebtSec getDebtSec() {
+        return debtSec;
+    }
 
+    public void setDebtSec(DebtSec debtSec) {
+        this.debtSec = debtSec;
+    }
 }

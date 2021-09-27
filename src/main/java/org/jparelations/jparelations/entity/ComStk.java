@@ -5,8 +5,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity(name = "ComStk")
-@Table(name = "com_stks")
+//@Entity(name = "ComStk")
+//@Table(name = "com_stks")
 public class ComStk {
 
     @Id
@@ -16,17 +16,17 @@ public class ComStk {
     @Column(name = "prices")
     private BigDecimal price;
 
-    @OneToMany(mappedBy = "comStkIssuer", fetch = FetchType.EAGER)
-    private List<DebtSec> debtSecs;
+//    @OneToMany(mappedBy = "comStkIssuer", fetch = FetchType.EAGER)
+//    private List<DebtSec> debtSecs;
 
-    public ComStk() {
-    }
-
-    public ComStk(String symbol, BigDecimal price) {
-        this.symbol = symbol;
-        this.price = price;
-        this.debtSecs = new ArrayList<DebtSec>();
-    }
+//    public ComStk() {
+//    }
+//
+//    public ComStk(String symbol, BigDecimal price) {
+//        this.symbol = symbol;
+//        this.price = price;
+//        this.debtSecs = new ArrayList<DebtSec>();
+//    }
 
     public String getSymbol() {
         return symbol;

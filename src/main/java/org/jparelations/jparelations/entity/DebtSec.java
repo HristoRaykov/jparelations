@@ -19,12 +19,14 @@ public class DebtSec {
     @Column(name = "div_freq")
     private Integer divFreq;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
-    @JoinColumn()
-    private ComStk comStkIssuer;
+//    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})
+//    @JoinColumn()
+//    private ComStk comStkIssuer;
 
     @LazyCollection(LazyCollectionOption.FALSE)
-    @OneToMany(mappedBy = "symbol", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(cascade = {CascadeType.ALL}, orphanRemoval = true)
+//    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "symbol")
     private List<HistPrice> histPrices;
 
     public DebtSec() {
@@ -39,13 +41,13 @@ public class DebtSec {
         return symbol;
     }
 
-    public ComStk getComStkIssuer() {
-        return comStkIssuer;
-    }
-
-    public void setComStkIssuer(ComStk comStkIssuer) {
-        this.comStkIssuer = comStkIssuer;
-    }
+//    public ComStk getComStkIssuer() {
+//        return comStkIssuer;
+//    }
+//
+//    public void setComStkIssuer(ComStk comStkIssuer) {
+//        this.comStkIssuer = comStkIssuer;
+//    }
 
     public List<HistPrice> getHistPrices() {
         return histPrices;
